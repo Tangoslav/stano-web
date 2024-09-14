@@ -11,7 +11,7 @@ body, html {
     height: 100%;
 }
 
-/* Hero Section with Gradient Background */
+/* Enhanced Gradient with More Depth */
 .hero {
     width: 100vw;
     height: 100vh;
@@ -21,16 +21,38 @@ body, html {
     align-items: center;
     position: relative;
     overflow: hidden;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
+/* Floating Bubbles for O2 Branding */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('bubbles.png') repeat;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+    animation: float 20s infinite;
+}
+
+/* Floating Bubbles Animation */
+@keyframes float {
+    0% { background-position: 0 0; }
+    50% { background-position: 100px 50px; }
+    100% { background-position: 0 0; }
+}
+
+/* Title Enhancements */
 .hero h1 {
     font-size: 56px;
     font-weight: 700;
     color: #FFFFFF;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
 }
 
+/* Subheading for Text Hierarchy */
 .subheading {
     font-size: 20px;
     font-weight: 300;
@@ -39,6 +61,7 @@ body, html {
     opacity: 0.8;
 }
 
+/* Styled Search Bar */
 .hero-search {
     position: relative;
     display: inline-block;
@@ -54,6 +77,25 @@ body, html {
     background-color: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
     transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.hero-search-input:focus {
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Pulsing Animation for Search Bar */
+.hero-search-input:focus {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
 }
 
 .hero-search-button {
@@ -69,8 +111,16 @@ body, html {
     padding: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+.hero-search-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* CTA Below the Search Bar */
 .cta {
     font-size: 16px;
     color: #FFFFFF;
@@ -78,162 +128,155 @@ body, html {
     opacity: 0.9;
 }
 
-/* Table Design */
+/* Table Enhancements */
 .tech-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
     margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Alternating row colors */
+.tech-table tbody tr:nth-child(odd) {
+    background-color: #E6F2FF; /* Light blue */
+}
+
+.tech-table tbody tr:nth-child(even) {
+    background-color: #F9FBFD; /* Lighter grey */
 }
 
 .tech-table th, .tech-table td {
-    padding: 15px;
+    padding: 12px;
     text-align: left;
-    font-size: 14px;
 }
 
 .tech-table th {
-    background-color: #0076CE;
+    background-color: #0076CE; /* O2 Blue */
     color: white;
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
 .tech-table td {
-    background-color: white;
-    color: #333;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #E0E0E0;
 }
 
-.tech-table tbody tr:nth-child(odd) {
-    background-color: #F9FBFD;
+/* Icons for specific types of data */
+.tech-table td.type::before {
+    content: '\f10c'; /* Example icon (replace with actual icons) */
+    font-family: "Material Icons";
+    padding-right: 5px;
 }
 
+/* Hover effect on rows */
 .tech-table tbody tr:hover {
-    background-color: #E0F7FF;
+    background-color: #B2D8FF; /* Light blue on hover */
+    cursor: pointer;
 }
 
-.tech-table .label-pill {
-    display: inline-block;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: white;
-    border-radius: 50px;
-}
-
-.tech-table .priority-pill {
-    background-color: #0076CE;
-}
-
-.tech-table .speed-pill {
-    background-color: #00BFFF;
-}
-
-.tech-table .date-pill {
-    background-color: #4CAF50;
-}
-
-/* Offer Cards */
+/* Card Enhancements */
 .offer-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .offer-card {
-    background: linear-gradient(135deg, #E6F2FF 0%, #F0F8FF 100%);
+    background-color: white;
     border: 1px solid #E0E0E0;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: calc(33% - 20px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    background-image: url('card-background.png'); /* Subtle background image */
+    background-size: cover;
 }
 
 .offer-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
 .offer-card .card-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    padding: 16px;
+    background: linear-gradient(90deg, #E6F2FF 0%, #F0F8FF 100%);
+    border-bottom: 1px solid #E0E0E0;
 }
 
-.offer-card .avatar {
+.offer-card .card-header .avatar {
     background-color: #0076CE;
     color: white;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 .offer-card .card-title {
     font-size: 20px;
     font-weight: bold;
     color: #002B7F;
-    flex-grow: 1;
 }
 
-.offer-card .card-icon {
-    font-size: 32px;
-    color: #00BFFF;
+.offer-card .card-subtitle {
+    font-size: 14px;
+    color: #757575;
 }
 
 .offer-card .card-content {
+    padding: 16px;
     font-size: 14px;
-    color: #333;
-    margin-top: 10px;
+    color: #424242;
 }
 
+/* Icons for Offer Tags */
 .offer-card .group-bubble {
-    background-color: #0076CE;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin-top: 15px;
     display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    background-color: #E6F2FF;
+    color: #002B7F;
+    font-weight: bold;
 }
 
-.offer-card .price {
+.offer-card .card-actions {
+    padding: 10px;
+    border-top: 1px solid #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.offer-card .card-actions .price {
     font-size: 18px;
     font-weight: bold;
     color: #0076CE;
-    margin-top: 15px;
 }
 
-.offer-card .priority {
+.offer-card .card-actions .priority {
     font-size: 14px;
-    color: #333;
-    margin-top: 10px;
+    color: #757575;
+    display: flex;
+    align-items: center;
 }
 
-/* Footer Styling */
-.footer, .subtle-credits {
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
-    color: #002B7F;
-    opacity: 0.5;
+.offer-card .priority img {
+    width: 18px;
+    margin-right: 5px;
 }
 
-.footer {
-    margin-top: 30px;
-    background-color: transparent;
-}
-
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 900px) {
     .hero h1 {
         font-size: 40px;
@@ -241,7 +284,7 @@ body, html {
     .hero-search-input {
         width: 80vw;
     }
-    .offer-card {
-        width: 100%;
+    .hero-search-input:focus {
+        width: 90vw;
     }
 }
