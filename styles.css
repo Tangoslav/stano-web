@@ -1,3 +1,4 @@
+/* Base Styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -93,6 +94,7 @@ body {
 /* Main Content */
 main {
     display: none; /* Hide main content initially */
+    padding: 40px; /* Added padding around the main content */
 }
 
 .show-content {
@@ -115,6 +117,7 @@ h2 {
     border-bottom: 2px solid #E6F2FF; /* Light blue underline */
     font-size: 24px;
 }
+
 /* Table Styles */
 .tech-table {
     width: 100%;
