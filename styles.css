@@ -11,7 +11,7 @@ body, html {
     height: 100%;
 }
 
-/* Enhanced Gradient with More Depth */
+/* Hero Section with Enhanced Gradient */
 .hero {
     width: 100vw;
     height: 100vh;
@@ -24,35 +24,15 @@ body, html {
     box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-/* Floating Bubbles for O2 Branding */
-.floating-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('bubbles.png') repeat;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: -1;
-    animation: float 20s infinite;
-}
-
-/* Floating Bubbles Animation */
-@keyframes float {
-    0% { background-position: 0 0; }
-    50% { background-position: 100px 50px; }
-    100% { background-position: 0 0; }
-}
-
-/* Title Enhancements */
+/* Title and Search Bar in Hero Section */
 .hero h1 {
     font-size: 56px;
     font-weight: 700;
     color: #FFFFFF;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Subheading for Text Hierarchy */
 .subheading {
     font-size: 20px;
     font-weight: 300;
@@ -61,7 +41,6 @@ body, html {
     opacity: 0.8;
 }
 
-/* Styled Search Bar */
 .hero-search {
     position: relative;
     display: inline-block;
@@ -77,25 +56,13 @@ body, html {
     background-color: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .hero-search-input:focus {
     width: 500px;
     background-color: rgba(255, 255, 255, 0.4);
     outline: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Pulsing Animation for Search Bar */
-.hero-search-input:focus {
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); }
-    100% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
 }
 
 .hero-search-button {
@@ -112,15 +79,13 @@ body, html {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .hero-search-button:hover {
     background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* CTA Below the Search Bar */
+/* CTA Text Below Search Bar */
 .cta {
     font-size: 16px;
     color: #FFFFFF;
@@ -128,56 +93,47 @@ body, html {
     opacity: 0.9;
 }
 
-/* Table Enhancements */
+/* Table Styling */
 .tech-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden;
+    border-radius: 8px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
-/* Alternating row colors */
+/* Alternating Row Colors */
 .tech-table tbody tr:nth-child(odd) {
-    background-color: #E6F2FF; /* Light blue */
+    background-color: #E6F2FF; /* Light Blue */
 }
 
 .tech-table tbody tr:nth-child(even) {
-    background-color: #F9FBFD; /* Lighter grey */
+    background-color: #F9FBFD; /* Light Grey */
 }
 
-.tech-table th, .tech-table td {
-    padding: 12px;
-    text-align: left;
-}
-
+/* Table Headers */
 .tech-table th {
-    background-color: #0076CE; /* O2 Blue */
-    color: white;
+    background-color: #0076CE; /* O2 Primary Blue */
+    color: #FFFFFF;
     font-weight: bold;
     text-transform: uppercase;
+    padding: 12px;
 }
 
 .tech-table td {
+    padding: 12px;
     border-bottom: 1px solid #E0E0E0;
 }
 
-/* Icons for specific types of data */
-.tech-table td.type::before {
-    content: '\f10c'; /* Example icon (replace with actual icons) */
-    font-family: "Material Icons";
-    padding-right: 5px;
-}
-
-/* Hover effect on rows */
+/* Hover Effect for Rows */
 .tech-table tbody tr:hover {
-    background-color: #B2D8FF; /* Light blue on hover */
+    background-color: #B2D8FF;
     cursor: pointer;
 }
 
-/* Card Enhancements */
+/* Offer Cards Enhancements */
 .offer-cards {
     display: flex;
     flex-wrap: wrap;
@@ -192,14 +148,13 @@ body, html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
-    position: relative;
-    background-image: url('card-background.png'); /* Subtle background image */
     background-size: cover;
+    background-position: center;
 }
 
 .offer-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .offer-card .card-header {
@@ -210,7 +165,7 @@ body, html {
     border-bottom: 1px solid #E0E0E0;
 }
 
-.offer-card .card-header .avatar {
+.offer-card .avatar {
     background-color: #0076CE;
     color: white;
     border-radius: 50%;
@@ -240,7 +195,6 @@ body, html {
     color: #424242;
 }
 
-/* Icons for Offer Tags */
 .offer-card .group-bubble {
     display: inline-block;
     padding: 6px 12px;
@@ -258,25 +212,18 @@ body, html {
     justify-content: space-between;
 }
 
-.offer-card .card-actions .price {
+.offer-card .price {
     font-size: 18px;
     font-weight: bold;
     color: #0076CE;
 }
 
-.offer-card .card-actions .priority {
+.offer-card .priority {
     font-size: 14px;
     color: #757575;
-    display: flex;
-    align-items: center;
 }
 
-.offer-card .priority img {
-    width: 18px;
-    margin-right: 5px;
-}
-
-/* Responsive Design */
+/* Responsive Design for Smaller Screens */
 @media (max-width: 900px) {
     .hero h1 {
         font-size: 40px;
@@ -286,5 +233,14 @@ body, html {
     }
     .hero-search-input:focus {
         width: 90vw;
+    }
+    .offer-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .offer-card {
+        width: 100%;
     }
 }
