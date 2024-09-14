@@ -91,13 +91,13 @@ body {
 
 /* O2 Slogan */
 .o2-slogan {
-    position: absolute;
+    position: fixed; /* Fixed to the bottom-right corner of the screen */
     bottom: 20px;
     right: 20px;
     font-size: 14px;
     color: #FFFFFF;
-    opacity: 0.8;
-    user-select: none; /* Make unhighlightable */
+    opacity: 0.7; /* Slightly opaque */
+    user-select: none; /* Make it unhighlightable */
     cursor: default; /* Keep cursor as arrow */
 }
 
@@ -118,7 +118,7 @@ main {
 .section {
     margin: 40px 20px;
     padding: 20px;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF; /* White background for sections */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -130,6 +130,7 @@ h2 {
     border-bottom: 2px solid #E6F2FF; /* Light blue underline */
     font-size: 24px;
 }
+
 /* Table Styles */
 .tech-table {
     width: 100%;
@@ -293,14 +294,6 @@ h2 {
     font-weight: bold;
 }
 
-/* 'No Offers' Message */
-.no-offers {
-    font-size: 18px;
-    color: #757575;
-    text-align: center;
-    margin-top: 20px;
-}
-
 /* Footer Styles */
 .footer {
     text-align: center;
@@ -324,7 +317,7 @@ h2 {
     padding: 5px;
     font-size: 10px;
     color: #002B7F;
-    opacity: 0.3;
+    opacity: 0.3; /* Make it even more subtle */
     position: fixed;
     bottom: 5px;
     width: 100%;
