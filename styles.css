@@ -6,62 +6,54 @@ body, html {
     color: #002B7F; /* O2 Primary Blue */
     scroll-behavior: smooth;
     background-color: #F5F7FA; /* Light grey background for contrast */
-    overflow: hidden;
+    overflow: hidden; /* Disable scroll bars on the landing page */
     width: 100%;
     height: 100%;
 }
 
-/* Enhanced Gradient with More Depth */
+/* Hide scrollbars but maintain functionality */
+body {
+    overflow: auto;
+}
+
+/* For Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge, and Firefox */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+/* Hero Section */
 .hero {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #00BFFF 10%, #002B7F 100%);
+    /* Updated gradient to be more vibrant and rotated */
+    background: linear-gradient(225deg, #00BFFF 0%, #002B7F 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    overflow: hidden; /* Hide scrollbars in hero section */
 }
 
-/* Floating Bubbles for O2 Branding */
-.floating-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('bubbles.png') repeat;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: -1;
-    animation: float 20s infinite;
+.hero-content {
+    text-align: center;
+    color: #FFFFFF;
+    padding: 20px;
 }
 
-/* Floating Bubbles Animation */
-@keyframes float {
-    0% { background-position: 0 0; }
-    50% { background-position: 100px 50px; }
-    100% { background-position: 0 0; }
-}
-
-/* Title Enhancements */
 .hero h1 {
-    font-size: 56px;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
-}
-
-/* Subheading for Text Hierarchy */
-.subheading {
-    font-size: 20px;
-    font-weight: 300;
-    color: #FFFFFF;
+    font-size: 48px;
     margin-bottom: 40px;
-    opacity: 0.8;
+    /* Make the heading unselectable and cursor default */
+    user-select: none;
+    cursor: default;
 }
 
-/* Styled Search Bar */
 .hero-search {
     position: relative;
     display: inline-block;
@@ -71,31 +63,16 @@ body, html {
     width: 400px;
     max-width: 80vw;
     padding: 15px 20px;
-    border: 2px solid #FFFFFF;
+    border: none;
     border-radius: 30px;
     font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    outline: none;
+    transition: width 0.4s ease;
 }
 
 .hero-search-input:focus {
     width: 500px;
-    background-color: rgba(255, 255, 255, 0.4);
-    outline: none;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Pulsing Animation for Search Bar */
-.hero-search-input:focus {
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); }
-    100% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+    max-width: 90vw;
 }
 
 .hero-search-button {
@@ -105,79 +82,85 @@ body, html {
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: #FFFFFF;
+    color: #0076CE;
     font-size: 28px;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.hero-search-button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+.hero-search-button:focus {
+    outline: none;
 }
 
-/* CTA Below the Search Bar */
-.cta {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin-top: 20px;
-    opacity: 0.9;
+/* Main Content */
+main {
+    display: none; /* Hide main content initially */
+    padding: 40px; /* Added padding around the main content */
 }
 
-/* Table Enhancements */
+.show-content {
+    display: block;
+}
+
+/* Section Styling */
+.section {
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: #FFFFFF; /* White background for sections */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #002B7F;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E6F2FF; /* Light blue underline */
+    font-size: 24px;
+}
+
+/* Table Styles */
 .tech-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden;
-    margin-top: 20px;
-}
-
-/* Alternating row colors */
-.tech-table tbody tr:nth-child(odd) {
-    background-color: #E6F2FF; /* Light blue */
-}
-
-.tech-table tbody tr:nth-child(even) {
-    background-color: #F9FBFD; /* Lighter grey */
+    border-radius: 8px; /* Make the table corners rounder */
+    overflow: hidden; /* Ensure the rounded corners are visible */
 }
 
 .tech-table th, .tech-table td {
     padding: 12px;
     text-align: left;
+    position: relative;
 }
 
 .tech-table th {
-    background-color: #0076CE; /* O2 Blue */
-    color: white;
-    font-weight: bold;
+    background-color: #002B7F; /* O2 Primary Blue */
+    color: #FFFFFF;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
 .tech-table td {
+    background-color: #FFFFFF;
+    color: #424242;
     border-bottom: 1px solid #E0E0E0;
 }
 
-/* Icons for specific types of data */
-.tech-table td.type::before {
-    content: '\f10c'; /* Example icon (replace with actual icons) */
-    font-family: "Material Icons";
-    padding-right: 5px;
+.tech-table tbody tr:last-child td {
+    border-bottom: none; /* Remove border from last row for better rounding */
 }
 
-/* Hover effect on rows */
-.tech-table tbody tr:hover {
-    background-color: #B2D8FF; /* Light blue on hover */
+.tech-table tbody tr:nth-child(odd) td {
+    background-color: #F9FBFD; /* Light Blue Gray */
+}
+
+.tech-table tbody tr:hover td {
+    background-color: #E6F2FF; /* Light Blue */
     cursor: pointer;
 }
 
-/* Card Enhancements */
+/* Offer Cards */
 .offer-cards {
     display: flex;
     flex-wrap: wrap;
@@ -185,21 +168,14 @@ body, html {
 }
 
 .offer-card {
-    background-color: white;
-    border: 1px solid #E0E0E0;
-    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0; /* Light Grey Border */
+    border-radius: 8px;
     width: calc(33% - 20px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
     overflow: hidden;
-    position: relative;
-    background-image: url('card-background.png'); /* Subtle background image */
-    background-size: cover;
-}
-
-.offer-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
 .offer-card .card-header {
@@ -207,29 +183,28 @@ body, html {
     align-items: center;
     padding: 16px;
     background: linear-gradient(90deg, #E6F2FF 0%, #F0F8FF 100%);
-    border-bottom: 1px solid #E0E0E0;
 }
 
 .offer-card .card-header .avatar {
-    background-color: #0076CE;
-    color: white;
+    background-color: #0076CE; /* O2 Secondary Blue */
+    color: #FFFFFF;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 22px;
     margin-right: 16px;
 }
 
-.offer-card .card-title {
+.offer-card .card-header .card-title {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
     color: #002B7F;
 }
 
-.offer-card .card-subtitle {
+.offer-card .card-header .card-subtitle {
     font-size: 14px;
     color: #757575;
 }
@@ -240,51 +215,146 @@ body, html {
     color: #424242;
 }
 
-/* Icons for Offer Tags */
-.offer-card .group-bubble {
-    display: inline-block;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-    background-color: #E6F2FF;
-    color: #002B7F;
-    font-weight: bold;
+.offer-card .card-content p {
+    margin-bottom: 10px;
 }
 
 .offer-card .card-actions {
-    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 8px 16px;
     border-top: 1px solid #E0E0E0;
-    display: flex;
-    justify-content: space-between;
 }
 
-.offer-card .card-actions .price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #0076CE;
-}
-
-.offer-card .card-actions .priority {
-    font-size: 14px;
-    color: #757575;
-    display: flex;
+.offer-card .card-actions button {
+    background: none;
+    border: none;
+    color: #0076CE; /* O2 Secondary Blue */
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 24px;
+    display: inline-flex;
     align-items: center;
+    transition: color 0.3s;
 }
 
-.offer-card .priority img {
-    width: 18px;
+.offer-card .card-actions button:hover {
+    color: #005B99; /* Darker Blue on Hover */
+}
+
+.offer-card .highlighted-products {
+    padding: 16px;
+    background: linear-gradient(90deg, #F0F8FF 0%, #E6F2FF 100%);
+    border-top: 1px solid #E0E0E0;
+}
+
+.offer-card .highlighted-products h4 {
+    margin-top: 0;
+    color: #002B7F; /* O2 Primary Blue */
+    font-size: 16px;
+}
+
+.offer-card .highlighted-products ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.offer-card .highlighted-products li {
+    margin-bottom: 5px;
+}
+
+/* Groups as Light Blue Bubbles */
+.groups-container {
+    margin-top: 10px;
+}
+
+.group-bubble {
+    display: inline-block;
+    padding: 6px 12px;
     margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    background-color: #E6F2FF; /* O2 Light Blue */
+    color: #002B7F; /* O2 Primary Blue for text */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 'No Offers' Message */
+.no-offers {
+    font-size: 18px;
+    color: #757575;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #002B7F;
+    opacity: 0.5; /* Make it subtle */
+    position: fixed;
+    bottom: 20px; /* Adjusted to make room for subtle credits */
+    width: 100%;
+    background-color: transparent; /* Make background transparent */
+    /* Make text unselectable and cursor default */
+    user-select: none;
+    cursor: default;
+}
+
+.footer p {
+    margin: 0;
+    user-select: none;
+    cursor: default;
+}
+
+/* Even Subtler Credits */
+.subtle-credits {
+    text-align: center;
+    padding: 5px;
+    font-size: 10px;
+    color: #002B7F;
+    opacity: 0.3; /* Make it even more subtle */
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+    background-color: transparent;
+    /* Make text unselectable and cursor default */
+    user-select: none;
+    cursor: default;
+}
+
+.subtle-credits p {
+    margin: 0;
+    user-select: none;
+    cursor: default;
 }
 
 /* Responsive Design */
 @media (max-width: 900px) {
+    .offer-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .offer-card {
+        width: 100%;
+    }
     .hero h1 {
-        font-size: 40px;
+        font-size: 32px;
     }
     .hero-search-input {
         width: 80vw;
     }
     .hero-search-input:focus {
         width: 90vw;
+    }
+    .section {
+        margin: 20px 10px;
+        padding: 15px;
     }
 }
