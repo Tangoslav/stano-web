@@ -11,7 +11,7 @@ body, html {
     height: 100%;
 }
 
-/* Hero Section with Enhanced Gradient */
+/* Hero Section with Gradient Background */
 .hero {
     width: 100vw;
     height: 100vh;
@@ -21,10 +21,8 @@ body, html {
     align-items: center;
     position: relative;
     overflow: hidden;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-/* Title and Search Bar in Hero Section */
 .hero h1 {
     font-size: 56px;
     font-weight: 700;
@@ -56,13 +54,6 @@ body, html {
     background-color: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.hero-search-input:focus {
-    width: 500px;
-    background-color: rgba(255, 255, 255, 0.4);
-    outline: none;
 }
 
 .hero-search-button {
@@ -78,14 +69,8 @@ body, html {
     padding: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.hero-search-button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* CTA Text Below Search Bar */
 .cta {
     font-size: 16px;
     color: #FFFFFF;
@@ -93,137 +78,162 @@ body, html {
     opacity: 0.9;
 }
 
-/* Table Styling */
+/* Table Design */
 .tech-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-collapse: collapse;
     margin-top: 20px;
-    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Alternating Row Colors */
-.tech-table tbody tr:nth-child(odd) {
-    background-color: #E6F2FF; /* Light Blue */
+.tech-table th, .tech-table td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
 }
 
-.tech-table tbody tr:nth-child(even) {
-    background-color: #F9FBFD; /* Light Grey */
-}
-
-/* Table Headers */
 .tech-table th {
-    background-color: #0076CE; /* O2 Primary Blue */
-    color: #FFFFFF;
-    font-weight: bold;
+    background-color: #0076CE;
+    color: white;
     text-transform: uppercase;
-    padding: 12px;
+    letter-spacing: 0.1em;
 }
 
 .tech-table td {
-    padding: 12px;
-    border-bottom: 1px solid #E0E0E0;
+    background-color: white;
+    color: #333;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Hover Effect for Rows */
+.tech-table tbody tr:nth-child(odd) {
+    background-color: #F9FBFD;
+}
+
 .tech-table tbody tr:hover {
-    background-color: #B2D8FF;
-    cursor: pointer;
+    background-color: #E0F7FF;
 }
 
-/* Offer Cards Enhancements */
+.tech-table .label-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: white;
+    border-radius: 50px;
+}
+
+.tech-table .priority-pill {
+    background-color: #0076CE;
+}
+
+.tech-table .speed-pill {
+    background-color: #00BFFF;
+}
+
+.tech-table .date-pill {
+    background-color: #4CAF50;
+}
+
+/* Offer Cards */
 .offer-cards {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .offer-card {
-    background-color: white;
+    background: linear-gradient(135deg, #E6F2FF 0%, #F0F8FF 100%);
     border: 1px solid #E0E0E0;
-    border-radius: 10px;
-    width: calc(33% - 20px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .offer-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .offer-card .card-header {
     display: flex;
     align-items: center;
-    padding: 16px;
-    background: linear-gradient(90deg, #E6F2FF 0%, #F0F8FF 100%);
-    border-bottom: 1px solid #E0E0E0;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .offer-card .avatar {
     background-color: #0076CE;
     color: white;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    margin-right: 16px;
+    margin-right: 10px;
 }
 
 .offer-card .card-title {
     font-size: 20px;
     font-weight: bold;
     color: #002B7F;
+    flex-grow: 1;
 }
 
-.offer-card .card-subtitle {
-    font-size: 14px;
-    color: #757575;
+.offer-card .card-icon {
+    font-size: 32px;
+    color: #00BFFF;
 }
 
 .offer-card .card-content {
-    padding: 16px;
     font-size: 14px;
-    color: #424242;
+    color: #333;
+    margin-top: 10px;
 }
 
 .offer-card .group-bubble {
-    display: inline-block;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-    background-color: #E6F2FF;
-    color: #002B7F;
+    background-color: #0076CE;
+    color: white;
+    font-size: 12px;
     font-weight: bold;
-}
-
-.offer-card .card-actions {
-    padding: 10px;
-    border-top: 1px solid #E0E0E0;
-    display: flex;
-    justify-content: space-between;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-top: 15px;
+    display: inline-block;
 }
 
 .offer-card .price {
     font-size: 18px;
     font-weight: bold;
     color: #0076CE;
+    margin-top: 15px;
 }
 
 .offer-card .priority {
     font-size: 14px;
-    color: #757575;
+    color: #333;
+    margin-top: 10px;
 }
 
-/* Responsive Design for Smaller Screens */
+/* Footer Styling */
+.footer, .subtle-credits {
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #002B7F;
+    opacity: 0.5;
+}
+
+.footer {
+    margin-top: 30px;
+    background-color: transparent;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 900px) {
     .hero h1 {
         font-size: 40px;
@@ -231,15 +241,6 @@ body, html {
     .hero-search-input {
         width: 80vw;
     }
-    .hero-search-input:focus {
-        width: 90vw;
-    }
-    .offer-card {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 600px) {
     .offer-card {
         width: 100%;
     }
