@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find O₂ Offers in Your Area</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Google Fonts for Open Sans and Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Find O<sub>2</sub> Offers in Your Area</h1>
+            <div class="hero-search">
+                <input type="text" id="heroSearchInput" class="hero-search-input" placeholder="Enter your location..." onkeydown="heroSearch(event)">
+                <button class="hero-search-button material-icons" aria-label="Search" onclick="triggerHeroSearch()">search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <div class="section">
+            <h2>Available Technologies</h2>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Available Date</th>
+                        <th>Max Download Speed (Mbps)</th>
+                        <th>Priority</th>
+                        <th>Priority Area</th>
+                    </tr>
+                </thead>
+                <tbody id="technologyList">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Offers in <span id="locationDisplay">Your Area</span></h2>
+            <div id="offerCards" class="offer-cards">
+                <!-- Offer cards will be inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Subtle Credits Footer -->
+    <footer class="footer">
+        <p>Developed by Team SIGMA (bsl-offering of ART in O<sub>2</sub>).</p>
+    </footer>
+
+    <!-- Even Subtler Credits -->
+    <div class="subtle-credits">
+        <p>Visual interface created by Tobias Le.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
