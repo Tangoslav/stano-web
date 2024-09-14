@@ -6,7 +6,7 @@ body, html {
     color: #002B7F; /* O2 Primary Blue */
     scroll-behavior: smooth;
     background-color: #F5F7FA; /* Light grey background for contrast */
-    overflow: hidden; /* Disable scroll bars on the landing page */
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -31,13 +31,12 @@ body {
 .hero {
     width: 100vw;
     height: 100vh;
-    /* Updated gradient to be more vibrant and rotated */
     background: linear-gradient(225deg, #00BFFF 0%, #002B7F 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Hide scrollbars in hero section */
+    overflow: hidden;
 }
 
 .hero-content {
@@ -49,7 +48,6 @@ body {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 40px;
-    /* Make the heading unselectable and cursor default */
     user-select: none;
     cursor: default;
 }
@@ -93,8 +91,8 @@ body {
 
 /* Main Content */
 main {
-    display: none; /* Hide main content initially */
-    padding: 40px; /* Added padding around the main content */
+    display: none;
+    padding: 40px;
 }
 
 .show-content {
@@ -105,7 +103,7 @@ main {
 .section {
     margin: 40px 20px;
     padding: 20px;
-    background-color: #FFFFFF; /* White background for sections */
+    background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -114,7 +112,7 @@ h2 {
     color: #002B7F;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #E6F2FF; /* Light blue underline */
+    border-bottom: 2px solid #E6F2FF;
     font-size: 24px;
 }
 
@@ -124,8 +122,8 @@ h2 {
     border-collapse: separate;
     border-spacing: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Make the table corners rounder */
-    overflow: hidden; /* Ensure the rounded corners are visible */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .tech-table th, .tech-table td {
@@ -135,7 +133,7 @@ h2 {
 }
 
 .tech-table th {
-    background-color: #002B7F; /* O2 Primary Blue */
+    background-color: #002B7F;
     color: #FFFFFF;
     font-weight: 600;
     text-transform: uppercase;
@@ -148,15 +146,15 @@ h2 {
 }
 
 .tech-table tbody tr:last-child td {
-    border-bottom: none; /* Remove border from last row for better rounding */
+    border-bottom: none;
 }
 
 .tech-table tbody tr:nth-child(odd) td {
-    background-color: #F9FBFD; /* Light Blue Gray */
+    background-color: #F9FBFD;
 }
 
 .tech-table tbody tr:hover td {
-    background-color: #E6F2FF; /* Light Blue */
+    background-color: #E6F2FF;
     cursor: pointer;
 }
 
@@ -169,12 +167,12 @@ h2 {
 
 .offer-card {
     background-color: #FFFFFF;
-    border: 1px solid #E0E0E0; /* Light Grey Border */
+    border: 1px solid #E0E0E0;
     border-radius: 8px;
     width: calc(33% - 20px);
     box-sizing: border-box;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
@@ -185,8 +183,8 @@ h2 {
     background: linear-gradient(90deg, #E6F2FF 0%, #F0F8FF 100%);
 }
 
-.offer-card .card-header .avatar {
-    background-color: #0076CE; /* O2 Secondary Blue */
+.offer-card .avatar {
+    background-color: #0076CE;
     color: #FFFFFF;
     border-radius: 50%;
     width: 50px;
@@ -198,13 +196,13 @@ h2 {
     margin-right: 16px;
 }
 
-.offer-card .card-header .card-title {
+.offer-card .card-title {
     font-size: 20px;
     font-weight: 600;
     color: #002B7F;
 }
 
-.offer-card .card-header .card-subtitle {
+.offer-card .card-subtitle {
     font-size: 14px;
     color: #757575;
 }
@@ -213,10 +211,6 @@ h2 {
     padding: 16px;
     font-size: 14px;
     color: #424242;
-}
-
-.offer-card .card-content p {
-    margin-bottom: 10px;
 }
 
 .offer-card .card-actions {
@@ -229,7 +223,7 @@ h2 {
 .offer-card .card-actions button {
     background: none;
     border: none;
-    color: #0076CE; /* O2 Secondary Blue */
+    color: #0076CE;
     cursor: pointer;
     margin-right: 8px;
     font-size: 24px;
@@ -239,29 +233,35 @@ h2 {
 }
 
 .offer-card .card-actions button:hover {
-    color: #005B99; /* Darker Blue on Hover */
+    color: #005B99;
 }
 
+/* Highlighted Products Section */
 .offer-card .highlighted-products {
     padding: 16px;
     background: linear-gradient(90deg, #F0F8FF 0%, #E6F2FF 100%);
     border-top: 1px solid #E0E0E0;
 }
 
-.offer-card .highlighted-products h4 {
-    margin-top: 0;
-    color: #002B7F; /* O2 Primary Blue */
+.highlighted-product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.highlighted-product-card h4 {
+    margin: 0 0 8px 0;
+    color: #002B7F;
     font-size: 16px;
 }
 
-.offer-card .highlighted-products ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 0;
-}
-
-.offer-card .highlighted-products li {
-    margin-bottom: 5px;
+.highlighted-product-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #424242;
 }
 
 /* Groups as Light Blue Bubbles */
@@ -269,19 +269,19 @@ h2 {
     margin-top: 10px;
 }
 
-.group-bubble {
+.group-bubble, .tag-bubble {
     display: inline-block;
     padding: 6px 12px;
     margin-right: 5px;
     margin-bottom: 5px;
     border-radius: 20px;
-    background-color: #E6F2FF; /* O2 Light Blue */
-    color: #002B7F; /* O2 Primary Blue for text */
+    background-color: #E6F2FF;
+    color: #002B7F;
     font-size: 12px;
     font-weight: bold;
 }
 
-/* 'No Offers' Message */
+/* No Offers Message */
 .no-offers {
     font-size: 18px;
     color: #757575;
@@ -295,12 +295,11 @@ h2 {
     padding: 10px;
     font-size: 12px;
     color: #002B7F;
-    opacity: 0.5; /* Make it subtle */
+    opacity: 0.5;
     position: fixed;
-    bottom: 20px; /* Adjusted to make room for subtle credits */
+    bottom: 20px;
     width: 100%;
-    background-color: transparent; /* Make background transparent */
-    /* Make text unselectable and cursor default */
+    background-color: transparent;
     user-select: none;
     cursor: default;
 }
@@ -317,18 +316,11 @@ h2 {
     padding: 5px;
     font-size: 10px;
     color: #002B7F;
-    opacity: 0.3; /* Make it even more subtle */
+    opacity: 0.3;
     position: fixed;
     bottom: 5px;
     width: 100%;
     background-color: transparent;
-    /* Make text unselectable and cursor default */
-    user-select: none;
-    cursor: default;
-}
-
-.subtle-credits p {
-    margin: 0;
     user-select: none;
     cursor: default;
 }
