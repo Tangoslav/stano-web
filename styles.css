@@ -1,3 +1,6 @@
+/* styles.css */
+
+/* Base Styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -30,13 +33,12 @@ body {
 .hero {
     width: 100vw;
     height: 100vh;
-    /* Updated gradient to be more vibrant and rotated */
     background: linear-gradient(225deg, #00BFFF 0%, #002B7F 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Hide scrollbars in hero section */
+    overflow: hidden;
 }
 
 .hero-content {
@@ -48,9 +50,6 @@ body {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 40px;
-    /* Make the heading unselectable and cursor default */
-    user-select: none;
-    cursor: default;
 }
 
 .hero-search {
@@ -90,6 +89,22 @@ body {
     outline: none;
 }
 
+/* O2 Slogan */
+.o2-slogan {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: #FFFFFF;
+    opacity: 0.8;
+    user-select: none; /* Make unhighlightable */
+    cursor: default; /* Keep cursor as arrow */
+}
+
+.o2-slogan p {
+    margin: 0;
+}
+
 /* Main Content */
 main {
     display: none; /* Hide main content initially */
@@ -103,7 +118,7 @@ main {
 .section {
     margin: 40px 20px;
     padding: 20px;
-    background-color: #FFFFFF; /* White background for sections */
+    background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -294,18 +309,13 @@ h2 {
     color: #002B7F;
     opacity: 0.5; /* Make it subtle */
     position: fixed;
-    bottom: 20px; /* Adjusted to make room for subtle credits */
+    bottom: 20px;
     width: 100%;
-    background-color: transparent; /* Make background transparent */
-    /* Make text unselectable and cursor default */
-    user-select: none;
-    cursor: default;
+    background-color: transparent;
 }
 
 .footer p {
     margin: 0;
-    user-select: none;
-    cursor: default;
 }
 
 /* Even Subtler Credits */
@@ -314,20 +324,15 @@ h2 {
     padding: 5px;
     font-size: 10px;
     color: #002B7F;
-    opacity: 0.3; /* Make it even more subtle */
+    opacity: 0.3;
     position: fixed;
     bottom: 5px;
     width: 100%;
     background-color: transparent;
-    /* Make text unselectable and cursor default */
-    user-select: none;
-    cursor: default;
 }
 
 .subtle-credits p {
     margin: 0;
-    user-select: none;
-    cursor: default;
 }
 
 /* Responsive Design */
