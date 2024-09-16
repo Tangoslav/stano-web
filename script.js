@@ -349,7 +349,7 @@ function createOfferCard(offer) {
 
 // Create offer header (with code and description)
 function createOfferHeader(offer) {
-    return `<h3>${offer.code}</h3><p>Unlimited calls and SMS to all networks</p>`;
+    return `<h3>${offer.code}</h3><p>Explore the best plans with a range of benefits suited for you</p>`;
 }
 
 // Create price section
