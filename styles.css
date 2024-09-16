@@ -5,7 +5,7 @@ body, html {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     color: #002B7F; /* O2 Primary Blue */
     scroll-behavior: smooth;
-    background-color: #F5F7FA; /* Light grey background for contrast */
+    background-color: #F5F7FA; /* Light grey background */
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -116,46 +116,80 @@ h2 {
     font-size: 24px;
 }
 
-/* Table Styles */
+/* Main container for tech table */
 .tech-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    gap: 20px;
+    padding: 40px;
+    background-color: #f9fafc; /* Unified light background */
+    border-radius: 10px; /* Rounded corners for entire section */
+}
+
+/* Each technology card */
+.tech-feature {
+    display: flex;
+    align-items: center;
+    background-color: #fff; /* White background for each card */
+    padding: 15px;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: transform 0.2s; /* Slight animation on hover */
 }
 
-.tech-table th, .tech-table td {
-    padding: 12px;
-    text-align: left;
-    position: relative;
+.tech-feature:hover {
+    transform: translateY(-5px); /* Lifts card on hover */
 }
 
-.tech-table th {
-    background-color: #002B7F;
-    color: #FFFFFF;
-    font-weight: 600;
-    text-transform: uppercase;
+/* Circle around the icon */
+.tech-feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #EEF3FB; /* Light background for circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px;
+    margin-right: 15px;
+    font-size: 30px; /* Ensure the icon size is appropriate */
+    color: #0076CE;  /* Set the color to match the blue style */
+    box-sizing: border-box;
 }
 
-.tech-table td {
-    background-color: #FFFFFF;
-    color: #424242;
-    border-bottom: 1px solid #E0E0E0;
+/* Adjust Material Icons style inside the circle */
+.tech-feature-icon .material-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.tech-table tbody tr:last-child td {
-    border-bottom: none;
+
+/* Icon style inside the circle */
+.tech-feature-icon img {
+    width: 30px; /* Adjust icon size */
+    height: 30px;
+    color: #0076CE; /* Blue color inside the circle */
 }
 
-.tech-table tbody tr:nth-child(odd) td {
-    background-color: #F9FBFD;
+/* Feature title styling */
+.tech-feature-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #002B7F; /* Dark blue */
 }
 
-.tech-table tbody tr:hover td {
-    background-color: #E6F2FF;
-    cursor: pointer;
+/* Feature detail (subtitle) styling */
+.tech-feature-detail {
+    font-size: 14px;
+    color: #757575; /* Light gray for detail text */
+}
+
+/* Card Section Background Color */
+.offer-cards-section {
+    background-color: #FAF3E0; /* Beige background for the card section */
+    padding: 40px;
+    border-radius: 8px;
 }
 
 /* Offer Cards */
@@ -174,66 +208,83 @@ h2 {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
-.offer-card .card-header {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background: linear-gradient(90deg, #E6F2FF 0%, #F0F8FF 100%);
-}
-
-.offer-card .avatar {
-    background-color: #0076CE;
-    color: #FFFFFF;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-right: 16px;
-}
-
-.offer-card .card-title {
-    font-size: 20px;
-    font-weight: 600;
+/* Card Header */
+.offer-card h3 {
+    font-size: 24px;
     color: #002B7F;
+    margin-bottom: 10px;
 }
 
-.offer-card .card-subtitle {
-    font-size: 14px;
+.offer-card p {
+    font-size: 16px;
+    color: #424242;
+    margin-bottom: 15px;
+}
+
+/* Price Styling */
+.offer-card .price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #002B7F;
+    margin: 10px 0;
+}
+
+.offer-card .price span {
+    font-size: 16px;
     color: #757575;
 }
 
-.offer-card .card-content {
-    padding: 16px;
-    font-size: 14px;
-    color: #424242;
-}
-
-.offer-card .card-actions {
+/* Styling for the highlighted product section */
+.highlight-product {
+    background-color: #ECF9E8; /* Light green background */
+    border: 1px solid #C7E7BD; /* Light green border */
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 5px;
     display: flex;
-    justify-content: flex-start;
-    padding: 8px 16px;
-    border-top: 1px solid #E0E0E0;
-}
-
-.offer-card .card-actions button {
-    background: none;
-    border: none;
-    color: #0076CE;
-    cursor: pointer;
-    margin-right: 8px;
-    font-size: 24px;
-    display: inline-flex;
+    justify-content: space-between; /* Space between label and price */
     align-items: center;
-    transition: color 0.3s;
 }
 
-.offer-card .card-actions button:hover {
-    color: #005B99;
+/* Styling for the product price */
+.highlight-product .highlight-price {
+    font-weight: bold;
+    color: #002B7F; /* Darker color for emphasis */
+    font-size: 18px; /* Larger font for price */
+}
+
+/* Order Online Button */
+.offer-card .order-online {
+    background-color: #69B327;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.offer-card .order-online:hover {
+    background-color: #5AA722;
+}
+
+/* Order by Phone Link */
+.offer-card .order-phone {
+    color: #002B7F;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
 }
 
 /* Highlighted Products Section */
