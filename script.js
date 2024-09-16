@@ -241,180 +241,186 @@ const data = {
   ]
 };
 
-// Function to display technologies
-function displayTechnologies(data) {
-    const techList = data.localityScanCheck.technologyList;
-    const tbody = document.getElementById('technologyList');
-    tbody.innerHTML = ''; // Clear existing content
+// Initialize the page by displaying data
+document.addEventListener('DOMContentLoaded', function() {
+    displayTechnologies(data.localityScanCheck.technologyList);
+    displayOffers(data.offerList);
+});
+
+// ----------- Technology Functions --------------- //
+
+// Display all technologies
+function displayTechnologies(techList) {
+    const techTable = document.querySelector('.tech-table');
+    techTable.innerHTML = ''; // Clear any previous content
+
     techList.forEach(tech => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${tech.type}</td>
-            <td>${tech.availableDate}</td>
-            <td>${tech.maxDownSpeed}</td>
-            <td>${tech.priority}</td>
-            <td>${tech.priorityArea}</td>
-        `;
-        tbody.appendChild(tr);
+        const techFeature = createTechnologyCard(tech);
+        techTable.appendChild(techFeature);
     });
 }
 
-// Function to display offers as Material UI-like cards
-function displayOffers(data) {
-    const offerList = data.offerList;
+// Create individual technology card
+function createTechnologyCard(tech) {
+    const techFeature = document.createElement('div');
+    techFeature.classList.add('tech-feature');
+
+    const techIcon = createTechnologyIcon(tech.type);
+    const techContent = createTechnologyContent(tech);
+
+    techFeature.appendChild(techIcon);
+    techFeature.appendChild(techContent);
+
+    return techFeature;
+}
+
+function createTechnologyIcon(type) {
+    const techIcon = document.createElement('span');
+    techIcon.classList.add('material-icons', 'tech-feature-icon');
+
+    const icons = {
+        'OPTICAL': 'lightbulb',        // Icon for Optical Fiber
+        'VDSLBONDING': 'link',         // Icon for Bonding
+        'AIRFIX': 'satellite',         // Icon for AirFix (use satellite)
+        'VDSLVECTORING': 'network_check', // Icon for Vectoring (Signal/Network check)
+        'VDSL': 'cable',               // Icon for VDSL (Cable)
+        '5G': 'phone_iphone',          // Icon for 5G (Phone)
+        'MULTIMEDIA': 'movie',         // Icon for Multimedia (Movie icon)
+        'DEFAULT': 'build'             // Default icon
+    };
+
+    techIcon.innerText = icons[type] || icons['DEFAULT'];
+    return techIcon;
+}
+
+// Create technology content (title and details)
+function createTechnologyContent(tech) {
+    const techContent = document.createElement('div');
+
+    const techTitle = document.createElement('div');
+    techTitle.classList.add('tech-feature-title');
+    techTitle.innerText = tech.type;
+
+    const techDetail = document.createElement('div');
+    techDetail.classList.add('tech-feature-detail');
+    techDetail.innerText = `${tech.maxDownSpeed} Mbps - Priority: ${tech.priority} - Area: ${tech.priorityArea}`;
+
+    techContent.appendChild(techTitle);
+    techContent.appendChild(techDetail);
+
+    return techContent;
+}
+
+// ----------- Offer Functions --------------- //
+
+// Display all offers
+function displayOffers(offerList) {
     const offerCardsContainer = document.getElementById('offerCards');
     offerCardsContainer.innerHTML = ''; // Clear existing cards
 
     offerList.forEach(offer => {
-        const card = document.createElement('div');
-        card.classList.add('offer-card');
-
-        // Card Header
-        const cardHeader = document.createElement('div');
-        cardHeader.classList.add('card-header');
-
-        // Avatar
-        const avatar = document.createElement('div');
-        avatar.classList.add('avatar');
-        avatar.textContent = offer.code.charAt(0); // First letter of the offer code
-        cardHeader.appendChild(avatar);
-
-        // Title and Subtitle
-        const titleContainer = document.createElement('div');
-
-        const offerCode = document.createElement('div');
-        offerCode.classList.add('card-title');
-        offerCode.textContent = offer.code;
-        titleContainer.appendChild(offerCode);
-
-        const validFrom = document.createElement('div');
-        validFrom.classList.add('card-subtitle');
-        validFrom.textContent = `Valid From: ${new Date(offer.validFrom).toLocaleDateString()}`;
-        titleContainer.appendChild(validFrom);
-
-        cardHeader.appendChild(titleContainer);
-
-        card.appendChild(cardHeader);
-
-        // Card Content
-        const cardContent = document.createElement('div');
-        cardContent.classList.add('card-content');
-
-        // Tags as Bubbles
-        if (offer.tags && offer.tags.length > 0) {
-            const tagsContainer = document.createElement('div');
-            tagsContainer.classList.add('groups-container');
-
-            offer.tags.forEach(tag => {
-                const tagBubble = document.createElement('span');
-                tagBubble.classList.add('tag-bubble');
-                tagBubble.textContent = tag;
-
-                tagsContainer.appendChild(tagBubble);
-            });
-
-            cardContent.appendChild(tagsContainer);
-        }
-
-        // Groups as Light Blue Bubbles
-        if (offer.groups && offer.groups.length > 0) {
-            const groupsContainer = document.createElement('div');
-            groupsContainer.classList.add('groups-container');
-
-            offer.groups.forEach(group => {
-                const groupBubble = document.createElement('span');
-                groupBubble.classList.add('group-bubble');
-                groupBubble.textContent = group.code;
-
-                groupsContainer.appendChild(groupBubble);
-            });
-
-            cardContent.appendChild(groupsContainer);
-        }
-
-        // Prices
-        if (offer.prices && offer.prices.length > 0) {
-            const prices = document.createElement('p');
-            prices.innerHTML = offer.prices.map(price => `<strong>${price.type}:</strong> ${price.priceWithVAT} CZK`).join('<br>');
-            cardContent.appendChild(prices);
-        }
-
-        card.appendChild(cardContent);
-
-        // Card Actions
-        const cardActions = document.createElement('div');
-        cardActions.classList.add('card-actions');
-
-        // Action Buttons (Icons)
-        const favoriteButton = document.createElement('button');
-        favoriteButton.classList.add('material-icons');
-        favoriteButton.textContent = 'favorite_border';
-        favoriteButton.setAttribute('aria-label', 'Add to favorites');
-        cardActions.appendChild(favoriteButton);
-
-        const shareButton = document.createElement('button');
-        shareButton.classList.add('material-icons');
-        shareButton.textContent = 'share';
-        shareButton.setAttribute('aria-label', 'Share');
-        cardActions.appendChild(shareButton);
-
-        card.appendChild(cardActions);
-
-        // Highlighted Products
-        if (offer.highlightedProducts && offer.highlightedProducts.length > 0) {
-            const highlightedProductsDiv = document.createElement('div');
-            highlightedProductsDiv.classList.add('highlighted-products');
-
-            offer.highlightedProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('highlighted-product-card');
-
-                const productTitle = document.createElement('h4');
-                productTitle.textContent = `Product Code: ${product.productCode}`;
-                productCard.appendChild(productTitle);
-
-                const productPrice = document.createElement('p');
-                productPrice.textContent = `Price: ${product.price ? product.price.priceWithVAT + ' ' + product.price.currencyCode : 'N/A'}`;
-                productCard.appendChild(productPrice);
-
-                highlightedProductsDiv.appendChild(productCard);
-            });
-
-            card.appendChild(highlightedProductsDiv);
-        }
-
+        const card = createOfferCard(offer);
         offerCardsContainer.appendChild(card);
     });
 }
 
-// Hero Search Functionality
+// Create individual offer card
+function createOfferCard(offer) {
+    const card = document.createElement('div');
+    card.classList.add('offer-card');
+
+    card.innerHTML = createOfferHeader(offer);
+
+    const priceSection = createPriceSection(offer.prices);
+    card.appendChild(priceSection);
+
+    offer.highlightedProducts.forEach(product => {
+        const highlightProduct = createHighlightProduct(product);
+        card.appendChild(highlightProduct);
+    });
+
+    const orderButton = createOrderButton('Order online');
+    const orderPhone = createOrderLink('Order by phone');
+    card.appendChild(orderButton);
+    card.appendChild(orderPhone);
+
+    return card;
+}
+
+// Create offer header (with code and description)
+function createOfferHeader(offer) {
+    return `<h3>${offer.code}</h3><p>Unlimited calls and SMS to all networks</p>`;
+}
+
+// Create price section
+function createPriceSection(prices) {
+    const priceSection = document.createElement('div');
+    priceSection.classList.add('price');
+
+    const priceType = prices[0].type === 'ACTIVATION' ? '/ activation' : '/ month';
+    priceSection.innerHTML = `${prices[0].priceWithVAT} CZK <span>${priceType}</span>`;
+
+    return priceSection;
+}
+
+// Create highlight product section
+function createHighlightProduct(product) {
+    const highlightProduct = document.createElement('div');
+    highlightProduct.classList.add('highlight-product');
+
+    const productLabel = document.createElement('span');
+    productLabel.innerHTML = `Product Code: ${product.productCode}`;
+
+    const productPrice = document.createElement('span');
+    productPrice.classList.add('highlight-price');
+    productPrice.innerHTML = product.price ? ` ${product.price.priceWithVAT} ${product.price.currencyCode}` : '';
+
+    highlightProduct.appendChild(productLabel);
+    highlightProduct.appendChild(productPrice);
+
+    return highlightProduct;
+}
+
+// Create order button
+function createOrderButton(text) {
+    const orderButton = document.createElement('button');
+    orderButton.classList.add('order-online');
+    orderButton.innerText = text;
+    return orderButton;
+}
+
+// Create order by phone link
+function createOrderLink(text) {
+    const orderPhone = document.createElement('a');
+    orderPhone.href = '#';
+    orderPhone.classList.add('order-phone');
+    orderPhone.innerText = text;
+    return orderPhone;
+}
+
+// ----------- Hero Search Functions --------------- //
+
+// Handle search input (trigger on 'Enter' key)
 function heroSearch(event) {
     if (event.key === 'Enter') {
         triggerHeroSearch();
     }
 }
 
+// Trigger the hero search action
 function triggerHeroSearch() {
-    // Display the main content
     const mainContent = document.getElementById('mainContent');
     mainContent.classList.add('show-content');
 
-    // Reset overflow to allow scrolling
     document.body.style.overflow = 'auto';
-
-    // Scroll to main content
     mainContent.scrollIntoView({ behavior: 'smooth' });
 
-    // Get the entered location
     const enteredLocation = document.getElementById('heroSearchInput').value.trim();
-
-    // Update the location display in the heading
-    const locationDisplay = document.getElementById('locationDisplay');
-    locationDisplay.textContent = enteredLocation || 'Your Area';
+    updateLocationDisplay(enteredLocation);
 }
 
-// Initialize the page by displaying data
-document.addEventListener('DOMContentLoaded', function() {
-    displayTechnologies(data);
-    displayOffers(data);
-});
+// Update location display in the main heading
+function updateLocationDisplay(location) {
+    const locationDisplay = document.getElementById('locationDisplay');
+    locationDisplay.textContent = location || 'Your Area';
+}
